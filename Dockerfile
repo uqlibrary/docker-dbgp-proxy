@@ -1,4 +1,6 @@
-FROM uqlibrary/docker-base:5
+FROM uqlibrary/docker-base:7
+
+MAINTAINER Dan Callan <d.callan@library.uq.edu.au>
 
 RUN \
   pip2 install --upgrade pip && \
