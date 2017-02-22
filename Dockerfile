@@ -1,4 +1,4 @@
-FROM uqlibrary/docker-base:7
+FROM uqlibrary/docker-base:12
 
 MAINTAINER Dan Callan <d.callan@library.uq.edu.au>
 
