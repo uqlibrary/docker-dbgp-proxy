@@ -1,11 +1,9 @@
-FROM uqlibrary/docker-base:13
+FROM uqlibrary/alpine:3.13.1
 
-MAINTAINER Dan Callan <d.callan@library.uq.edu.au>
+RUN apk add --update --no-cache libc6-compat \
+    && wget -O /usr/bin/dbgpProxy https://xdebug.org/files/binaries/dbgpProxy \
+    && chmod 755 /usr/bin/dbgpProxy
 
-RUN \
-  pip2 install --upgrade pip && \
-  pip2 install komodo-python-dbgp
-
-CMD /usr/bin/pydbgpproxy -d 0.0.0.0:9000 -i 0.0.0.0:9001
+CMD /usr/bin/dbgpProxy --server 0.0.0.0:9000 --client 0.0.0.0:9001
 
 EXPOSE 9000 9001
